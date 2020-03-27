@@ -1,0 +1,327 @@
+% 		INSTRUCTIVO PARA CONSTRUIR EL ENSAYO DE FICCIÓN EN LATEX
+%					v.1.3
+%				elaborado por @rmuriel
+%		---------------------------------------------------
+		
+% Este instructivo se crea para facilitar la comprensión sobre la estructura de un trabajo escrito en LaTeX, y de paso para que se comprenda una forma (entre las miles que existen) en que se podría construir un «ensayo de ficción».
+
+% Antes de empezar, para algunos será útil que lo diga, se observará que el documento está dividido en títulos en mayúscula y comentarios en color azul (como este). Corresponden a las partes habituales de un documento LaTeX y mis explicaciones. La parte que van a modificar se llama «CUERPO DEL DOCUMENTO». No tienen que saber código LaTeX para hacer este trabajo, sólo se dejan guiar por esta plantilla y listo. Más allá de leer juiciosamente este instructivo, no necesitan más!! :)
+
+% Lo que esté en latín y en color negro es lo que ustedes van a modificar. Verán que es muy fácil... abran la mente y déjense guiar! :)
+
+% Comencemos!! 
+
+%================================================================»
+% 0 - RAZONES POR LAS QUE HACEMOS ESTE TRABAJO EN LATEX
+%================================================================»
+
+% 1. LaTeX es el lenguaje del mundo académico. Las mejores universidades del mundo funcionan así, en todas existe al menos una cátedra permanente de LaTeX. En Colombia, lastimosamente, sólo lo usa la Universidad Nacional, la Universidad de Antioquia y la Universidad de los Andes. Cada una de estas universidades tiene formatos (plantillas LaTeX) para trabajos de semestre, tesis, informes de laboratorio, ensayos y exámenes parciales. 
+
+% 2. En dos aspectos importantes es el procesador de texto más efectivo que existe: rendimiento de la máquina (no hace que se cuelgue) y acabado editorial del documento (La forma final del documento es profesional y responde a los cánones editoriales internacionales).
+
+% 3. Es software libre y multiplataforma. Se puede trabajar desde casi cualquier sistema operativo respetable. No necesita ser pirateado y está disponible para su descarga las 24 horas del día. Sin contar con que existe https://www.writelatex.com, que hace el trabajo mucho más cómodo de manera online. 
+
+% 4. Automatiza procedimientos mecánicos típicos en la construcción de documentos:  autonumeración de fórmulas, generación de listas, creación de índices de contenido, de tablas, figuras y terminológicos, etc. 
+
+% 5. La preocupación por la forma se la deja uno al computador. Uno no tiene que pensar en las márgenes, en las negritas de los títulos, en el tipo de letra, etc... De esas formalidades se encarga LaTeX... Uno sólo se concentra en producir contenido, que es para eso que se inventaron los procesadores de texto en una computadora. Preocuparse por la forma es como si no se hubiera superado la época de la máquina de escribir. 
+
+% 6. Permite el uso de bases de datos bibliográficas con BibTeX. Se ahorra tiempo a la hora de citar textos y hacer listados de publicaciones. Basta con hacer una vez la base bibliográfica y uno sólo debe «llamar» las referencias usadas para cualquier cantidad de textos que uno escriba. En esto LaTeX está conectado con Mendeley, la base de datos bibliográfica más importante de la actualidad en el mundo académico. 
+
+% y como si esto fuera poco...
+
+% 7. Con LaTeX se permiten hacer comentarios en cualquier sección del texto sin que aparezcan en el documento final. Basta con introducir un signo de porcentaje (%) antes de empezar a escribirlos. 
+
+% De modo que... empecemos desde ya a usar LaTeX!!!!
+
+%================================================================»
+% I - PREÁMBULO
+%================================================================»
+
+% Antes de escribir el texto como tal, para LaTeX es importante clarificar algunos aspectos básicos sobre la naturaleza del documento que se va a escribir. Esta primera parte se llama «PREÁMBULO» y es el lugar donde se clarifican los siguientes aspectos:
+
+% - Tamaño de hoja y de fuente
+% - Tipo de documento: libro, artículo, informe, etc.
+% - Paquetes de información: español, márgenes, copiado pdf, colores, gráficos, etc. 
+% - Autor, título y fecha
+% - Algunos ajustes a la estética del documento general
+
+%----------------------------------------------------------------»
+% a - Definición de la Clase del Documento 
+%----------------------------------------------------------------»
+
+\documentclass[11pt,letterpaper]{article}
+
+%----------------------------------------------------------------»
+% b - Paquetes para trabajar en español 
+%----------------------------------------------------------------»
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+%----------------------------------------------------------------»
+% c - Paquetes para solucionar el copiado del pdf
+%----------------------------------------------------------------»
+
+\usepackage{times}		
+\usepackage[T1]{fontenc}	
+
+%----------------------------------------------------------------»
+% d - Paquetes especiales (Según las necesidades del documento)
+%----------------------------------------------------------------»
+
+\usepackage[colorinlistoftodos]{todonotes} %Para insertar notas al lado
+\usepackage{graphicx} %Para usar imágenes
+\usepackage{tikz} %Para construir gráficos con código
+\usepackage{epigraph} %Hacer epígrafes
+\usepackage{multicol} %Construir múltiples columnas en el documento
+\usepackage{color} %Para darle color a la fuentes
+\usepackage{soul} %Para tachar palabras
+\usepackage{ulem} %Para subrayados y tachados especiales (\uuline, \uwave, \xout) Aunque casi nunca se usan, a veces pueden introducirse para remarcar algo. 
+
+%----------------------------------------------------------------»
+% e - Paquete para generar links (Si el doc. tiene hipervínculos)
+%----------------------------------------------------------------»
+
+\usepackage[backref]{hyperref}	% Soporte para generación de Links - Ojalá siempre el último paquete nombrado
+\hypersetup{pdfborder={0 0 0}}	% Quitarle los bordes a los links
+
+%----------------------------------------------------------------»
+% f - Arreglos sobre la estética de los párrafos (Opcional)
+%----------------------------------------------------------------»
+
+\setlength\parindent{0pt}	% Si se quiere suprimir la sangría de los párrafos
+\setlength{\parskip}{2mm}	% Si se quiere espaciar todos los párrafos
+
+%----------------------------------------------------------------»
+% g - Autor, título y fecha del Documento
+%----------------------------------------------------------------»
+
+\author{VALENTINA CIRO MEDELLIN \thanks{ESTUDIANTE DE INGENIERIA ELECTRÓNICA, UNIVERSIDAD DE ANTIOQUIA, 2020}}
+\title{NACIMIENTO DE LA COMPUTACIÓN A TRAVÉS DE LA CRISIS DE LOS FUNDAMENTOS}
+
+\date{\today} 
+
+%================================================================»
+% II - CUERPO DEL DOCUMENTO
+%================================================================»
+
+% Después de todo el preámbulo nos adentramos en la escritura del trabajo. El CUERPO DEL DOCUMENTO en LaTeX siempre inicia con las siguientes dos instrucciones:
+
+\begin{document}
+\maketitle
+
+% En el CUERPO DEL DOCUMENTO es donde vamos a encontrar:
+
+% - Abstract
+% - Secciones y subsecciones
+% - Tabla de contenido
+% - Tablas
+% - Gráficos
+% - Notas al pie y al márgen
+% - Párrafos especiales (cita)
+% - Bibliografía
+
+%----------------------------------------------------------------»
+% a - Creación del resumen (Abstract)
+%----------------------------------------------------------------»
+
+% El abstract es el resumen del ensayo. Se expone, entre cuatro y siete líneas, la naturaleza del escrito, su tema, el tipo de indagación y los intereses del texto. 
+
+\begin{abstract}
+El tema de este ensayo esta relacionado, como su nombre lo dice, con las matemáticas y la influencia que esta tuvo en el origen y/o nacimiento de la computación gracias a diferentes personajes que hicieron su aporte basados en investigaciones realizadas por cada uno de ellos. 
+\end{abstract}
+
+%----------------------------------------------------------------»
+% b - Escribir el Epígrafe (Opcional)
+%----------------------------------------------------------------»
+
+% Uno puede escribir o no un epígrafe al principio de un ensayo. Ustedes quizá lo han visto con frecuencia en diferentes tipos de escritos (ensayos, novelas, etc.) - Lo importante es que el epígrafe aluda a algo importante que usted quiere comunicar en el ensayo. 
+
+\epigraph{"La esencia de las matemáticas no es hacer las cosas simples complicadas, sino hacer las cosas complicadas simples" }{S. Gudder.}
+
+%----------------------------------------------------------------»
+% c - Inicio de las secciones del documento
+%----------------------------------------------------------------»
+
+\section*{} % La instrucción  \section con el signo * hace que no quede numerado.
+
+
+% En la «Introducción» se escribe una preparación a la discertación. La idea es atrapar al lector con sus propios intereses. Hacerle caer en cuenta que a él le gustaría leer sobre lo que usted le va a contar, especialmente le gustaría saber las razones por las cuales él debería ser un inventor como usted!!
+
+El desarrollo de la humanidad ha llegado a niveles tan elevados que muchos años atrás hubiese sido inimaginable el alcance al que se podría llegar. Entre los avances obtenidos se encuentra un área llamada computación, la cual ha cambiado notablemente la vida de las personas y ha tenido grandes cambios a través del tiempo que fueron permitiendo una facilidad en el manejo y organización de la información.  
+ 
+\underline{}
+
+% ----------------------
+% La intrucción \underline se usa para subrayar frases. 
+% ----------------------
+Actualmente, todos saben que los computadores o también llamados ordenadores, son aparatos de gran utilidad para las tareas diarias, son muy prácticos y se han convertido en algo indispensable para el funcionamiento de una sociedad moderna. Pero, aunque la mayoría de las personas usen estos aparatos en su vida cotidiana, es posible que ignoren el extraordinario origen de tan tecnológico invento que nos ha minimizado tantas tareas. Es muy interesante conocer cómo mentes tan geniales han llegado a crear tecnologías que se acomoden a nuestras necesidades y nos ayuden a resolver problemáticas del día a día.
+
+\vspace{10PT}
+
+
+% ----------------------
+% La instrucción \footnote{} es para hacer pies de página. Como se ve en el resultado en PDF, generan un numerito consecutivo, a la manera habitual de los pies de página de los artículos o libros de ciencia. 
+% ----------------------
+
+
+La computación surge por la simple intención de aclarar una cuestión filosófica y un debate entre varias mentes brillantes acerca de los fundamentos de la matemática.
+
+\vspace{10PT}
+
+Esta asombrosa historia comienza a finales del siglo XIX cuando la Revolución Industrial generó un impacto en los países occidentales haciendo que la ciencia y la tecnología se convirtieran en herramientas importantes para el desarrollo de estos países. En aquellos tiempos las matemáticas eran la base de todo fundamento y se creía que estas eran infalibles, en otras palabras, se tenía la idea de que “Las matemáticas nunca fallaban” Pero ¿es esto cierto? Aquí comienzan las diferencias entre pensamientos de distintos matemáticos, filósofos y lógicos, se genera un debate y por consiguiente nacen dos facciones: Los Intuicionistas y los formalistas. 
+
+\vspace{10PT}
+
+Por un lado, los intuicionistas, liderado por el matemático francés Henri Poincaré, proponían desechar para siempre toda la teoría de conjuntos. Y, por el otro lado, los formalistas, que estaban encabezados por el matemático alemán, David Hilbert y pensaban que sólo había qué resolver algunos problemas y llegarían a la conclusión de que las matemáticas seguirían siendo infalibles, es decir, buscaban usar axiomas para llegar a teoremas y así comprobar la veracidad de las matemáticas. Para esto, tenían un plan llamado formalismo, el cual consistía en utilizar la lógica simbólica para crear un lenguaje artificial, ser muy cuidadoso al especificar sus reglas, de modo que no surjan contradicciones. Querían combinar ideas ya existentes(axiomas) para demostrar teoremas nuevos y llegar a confirmar tres conclusiones:
+
+\vspace{10PT}
+
+\textbf{• Los sistemas axiomáticos son consistentes:} Es decir, no producían contradicciones.
+\vspace{10PT}
+
+\textbf{• Son finitarios:} Es decir, que las demostraciones se llevarían a cabo siguiendo una secuencia de pasos lógicos de forma algorítmica que terminarían en algún momento.
+
+
+\vspace{10PT}
+\textbf{• Son completos:} Es decir que para cada afirmación del sistema se podría demostrar si es cierta o falsa. 
+
+\vspace{10PT}
+
+En otras palabras, la intención de Hilbert siempre fue formalizar completamente el razonamiento matemático. Pero, su idea resultó siendo un fracaso. En 1874 apareció Georg Cantor, un matemático lógico ruso amante al arte y a la cultura. Cantor comenzó a trabajar en conjuntos(la base de las matemáticas) y fue teniendo un gran interés por el infinito hasta llegar a la conclusión de que hay infinitos de distintos tamaños. A esto, se le sumó el lógico matemático Kurt Gödel quién apoyaba y reforzaba las ideas de Cantor y demostró, en 1931 que el programa de Hilbert era imposible de concluir. Se refirió a sus ideas diciendo que “con procesos finitos ningún sistema puede ser a la vez consistente, recursivo y completo”. Estos contraargumentos echaron a perder el programa formalista de Hilbert, aunque se podría decir, mirándolo desde otro punto de vista, que también fue exitoso porque el formalismo ha aportado inmensamente en todo el desarrollo del siglo XX, no para la deducción matemática sino para la programación, el cálculo y la computación. Tras el error de Hilbert quedó planteada una pregunta que creó una disciplina nueva llamada la metamatemática, un concepto que abarca el estudio de lo que la matemática puede o no puede conseguir. El hecho de que todos estos pensadores dieran a conocer sus ideas hizo que entre ellos mismos se generaran muchas más incógnitas y surgieran una cantidad de teorías nuevas que más adelante aportarían al desarrollo de otras ciencias aparte de las matemáticas.
+
+
+\vspace{10PT}
+
+Kurt Gödel, al igual que Georg Cantor intentó emplear la lógica y la teoría de conjuntos para comprender los fundamentos de la matemática. Fue él quien planteó el teorema de incompletitud el cual señalaba que hay verdades matemáticas que no pueden ser demostradas en el interior de la teoría, por tanto, es imposible demostrar que todo un sistema es consistente usando los axiomas. Esta demostración de Gödel fue muy ingeniosa y paradójica. Según estudios realizados sobre el artículo original de Kurt Gödel, se dice que, aunque en 1931 no existían los ordenadores ni los lenguajes de programación, analizando el artículo se pudo ver que claramente había una especie de lenguaje de programación en el núcleo del artículo original realizado por Gödel.
+
+\vspace{10PT}
+
+Y entonces retomando,  después del momento en que Gödel contradijo las ideas de Hilbert, ¿dejaron de valer las matemáticas? Por fortuna no, lo que pasó después de eso es que se supo que las matemáticas también tienen límites. Este fue el acontecimiento matemático más importante del siglo XX y al que se le llamó “La crisis de los fundamentos”, fue la semilla de la automatización del pensamiento, de la programación y de los primeros ordenadores. 
+
+\vspace{10PT}
+
+El siguiente avance importante ocurrió cinco años después en Inglaterra cuando un lógico matemático austriaco-estadounidense llamado Alan Turing, continuó el legado de Gödel. Alan Turing descubrió la no-computabilidad. En sus artículos también se dice que empleaba una especie de lenguaje de programación. Se trataba de un lenguaje de máquina, formado por unos y ceros que eran procesados por un ordenador.  En 1936 Turing manifiesta que una máquina debería ser capaz de realizar cualquier cómputo que un ser humano pudiese llevar a cabo, pero a la vez también se generó la pregunta sobre: ¿Qué sería aquello que no podría realizar una máquina? Y llegó a la conclusión del problema de detención y decisión. Este problema se refería a la dificultad que tenía una máquina (en este caso la de Turing) para hallar la solución deseada y posteriormente, detenerse. 
+
+Turing pensó en una computadora que resolvería cualquier problema siempre y cuando fuera posible pasarlo a términos y expresiones matemáticas y luego reducirse a operaciones lógicas con tan solo dos valores: verdadero y falso. 
+Creó la llamada “Máquina de Turing” capaz de realizar, casilla a casilla operaciones con símbolos sobre una cinta infinitamente. Este dispositivo lo que hace es reducir todo a una cadena de operaciones lógicas con números binarios y luego realizar un algoritmo para resolver problemas en pasos más simples. 
+La máquina de Turing fue un aporte grandioso para la historia y ciencia ya que antes de esto, existían máquinas, pero no eran tan eficientes porque resolvían un problema a la vez y si se deseaba solucionar otro, debían cambiar los circuitos de la máquina. Con Turing la situación ya era diferente porque en lugar de modificar los circuitos de la máquina, sólo se necesitaba cambiar el programa y podía usarse para muchas cosas. Aquí nació la idea del ordenador digital. Que, por cierto, la palabra ordenador se refería a las personas especializadas en hacer cálculos numéricos y pasó a aplicarse en las máquinas porque comenzaron a sustituir a los humanos en dichas tareas. 
+
+\vspace{10PT}
+Por tanto, sin los aportes de estos grandes y a la vez arriesgados matemáticos que encontraron una solución a través de una crisis o choque de pensamientos entre los más respetados de su época, la cual fue denominada “crisis de los fundamentos”, sería difícil pensar en cómo controlar y mejorar el crecimiento económico, industrial, comercial, la ciencia y todo lo relacionado a nivel global. Los ordenadores están involucrados absolutamente en todo.
+Y, aunque suene raro o muy sencillo, estos ordenadores se utilizan como el recipiente más grande que existe para guardar una realidad moderna que antes no nos cabía ni en nuestra imaginación.
+
+%----------------------------------------------------------------»
+% c - Bibliografía
+%----------------------------------------------------------------»
+
+% El entorno «thebibliography» nos sirve para construir la bibliografía. Cada \bibtem es una referencia que hemos usado en nuestro documento. 
+
+% Para citar las referencias usamos el comando \cite{etiqueta}, tal y como se hizo en el último párrafo de esta plantilla.  Por supuesto, la «etiqueta» es el nombre que le hemos dado a la referencia. En el caso del primer libro de esta bibliografía vemos que la etiqueta es «ejemplo», las otras son «libro1», «libro2», etc. Usted puede usar cualquier etiqueta siempre y cuando no se repita en otra referencia. Cada referencia tiene etiqueta única.
+
+\begin{thebibliography}{99}
+
+
+\bibitem{}
+\textbf{REVOLUCIÓN INDUSTRIAL:} 
+
+\url{http://www.finanzasparatodos.es/gepeese/es/inicio/laEconomiaEn/laHistoria/revolucion_industrial.html}
+
+\bibitem{}
+\textbf{PARADOJAS DE CANTOR: } 
+
+\url{http://www.eluniversalqueretaro.mx/content/cantor-y-las-paradojas-del-infinito}
+
+\bibitem{}
+\textbf{CANTOR Y EL INFINITO: } 
+
+\url{https://www.semana.com/educacion/articulo/el-matematico-que-descubrio-que-hay-muchos-infinitos/581773}
+
+\url{https://www.bbvaopenmind.com/ciencia/matematicas/georg-cantor-el-hombre-que-descubrio-distintos-infinitos/}
+
+\url{https://www.elespectador.com/noticias/ciencia/georg-cantor-el-hombre-que-domestico-el-infinito-articulo-828330}
+
+\bibitem{}
+\textbf{EL LEGADO DE ALAN TURING } 
+
+\url{https://elpais.com/sociedad/2012/03/20/actualidad/1332271841_073504.html}
+
+\bibitem{}
+\textbf{LA VIDA DE KURT GODEL Y SUS APORTES: } 
+
+\url{https://www.bbvaopenmind.com/tecnologia/inteligencia-artificial/la-deuda-de-la-inteligencia-artificial-con-el-matematico-godel/}
+
+\bibitem{}
+\textbf{INTUICIONISMO Y FORMALISMO:  } 
+
+\url{http://www.filosofia.net/materiales/pdf23/CDM35.pdf}
+
+\bibitem{}
+\textbf{LOS LÍMITES DE LAS MATEMÁTICAS: } 
+
+\url{https://www.youtube.com/watch?v=ntlIA0KwJ_Q}
+
+\bibitem{}
+\textbf{APORTES DE DAVID HILBERT: } 
+
+\url{https://www.bbvaopenmind.com/ciencia/matematicas/david-hilbert-el-arquitecto-de-la-matematica-moderna/}
+
+\bibitem{}
+\textbf{APORTES DE DAVID HILBERT: } 
+
+\url{https://www.bbvaopenmind.com/ciencia/matematicas/david-hilbert-el-arquitecto-de-la-matematica-moderna/}
+
+\url{https://elpais.com/elpais/2018/02/19/ciencia/1519033592_636265.html}
+
+\bibitem{}
+\textbf{HENRI POINCARE INTUICIONISTA:  } 
+
+\url{https://www.bbc.com/mundo/noticias-45426302}
+
+\end{thebibliography}
+
+%================================================================»
+% EXPLICACIONES FINALES
+%================================================================»
+%----------------------------------------------------------------»
+% Signos en LaTeX
+%----------------------------------------------------------------»
+
+% Como se ha notado, escribir el signo % (porcentaje) produce «comentarios» dentro del código, explicaciones que no son tomadas en cuenta a la hora de «compilar» el código escrito. Si se quiere incorporar un signo % (porcentaje) como parte del texto que se está escribiendo debe escribirse con la barra de instrucción habitual, así: \% 
+
+% Hay otros signos a los que también es necesario antecederlos de la barra \ - Son los siguientes:
+
+% \		carácter inicial de comando			Se escribiría: \tt\char‘\\
+% { }	abre y cierra bloque de código		Se escribiría: \{, \}
+% $		abre y cierra el modo matemático		Se escribiría: \$
+% &		tabulador (en tablas y matrices)		Se escribiría: \&
+% #		señala parámetro en las macros		Se escribiría: \_ , \^{}
+% _, ^	para subíndices y exponentes			Se escribiría: \#
+% ~		para evitar cortes de renglón			Se escribiría: \~{}
+
+%----------------------------------------------------------------»
+% Cambios en la estética de las palabras
+%----------------------------------------------------------------»
+
+% Este es el listado de las instrucciones básicas:
+
+% - Negrita: 	\textbf{}
+% - Itálica: 	\textit{}
+% - Slanted:		\textsl{}
+% - Sans Serif:	\textsf{}
+% - Versalitas:	\textsc{}
+% - Typewriter: 	\texttt{}
+% - Enfático:	\emph{}
+
+% Lo que se escriba dentro de los corchetes de cada instrucción será lo que se verá modificado en el texto. Ejemplo:
+
+% \sc{Esto es una frase en versalitas}
+
+% Por supuesto, la anterior instrucción no compilará en este documento porque la antece un signo de % (porcentaje), que es el signo de los «comentarios». Pero, pruebe en el texto normal y verá los cambios con cada una de las anteriores instrucciones. 
+
+%--------------------------------»»
+% NOTA IMPORTANTE
+% Si alguien quiere anexar tablas o gráficos al documento, le recomiendo acercarse a la sección que lo explica en los manuales, guías o instructivos que están en BlackBoard. 
+%--------------------------------»»
+
+\end{document}
